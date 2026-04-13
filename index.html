@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>TORQONE.IN — Automotive Spare Parts | Fast Delivery Across Kerala</title>
+<meta name="description" content="Premium automotive spare parts delivered fast across Kerala. Brake pads, rotor discs, filters and more. Order instantly on WhatsApp. Edappally, Kochi."/>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,400;0,600;0,700;0,800;0,900;1,800&family=Barlow:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<style>
+:root {
+  --red:#E8192C; --red2:#ff2d3f;
+  --black:#07070a; --dark:#0d0d12;
+  --surface:#111118; --surface2:#18181f; --surface3:#1e1e28;
+  --chrome:#d4d8e2; --chrome2:#8a8fa0;
+  --text:#ededf2; --muted:#5a5a6a;
+  --green:#22c55e;
+  --font-head:'Barlow Condensed',sans-serif;
+  --font-body:'Barlow',sans-serif;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{background:var(--black);color:var(--text);font-family:var(--font-body);overflow-x:hidden;}
+a{text-decoration:none;}
+::-webkit-scrollbar{width:4px;}
+::-webkit-scrollbar-track{background:var(--dark);}
+::-webkit-scrollbar-thumb{background:var(--red);border-radius:2px;}
+
+/* ── FLOATING WA ── */
+.wa-float{position:fixed;bottom:24px;right:24px;z-index:999;width:58px;height:58px;border-radius:50%;background:#25d366;display:flex;align-items:center;justify-content:center;font-size:28px;box-shadow:0 4px 24px rgba(37,211,102,0.45);transition:transform 0.2s,box-shadow 0.2s;animation:waPulse 2.5s ease infinite;}
+.wa-float:hover{transform:scale(1.1);box-shadow:0 6px 32px rgba(37,211,102,0.6);}
+@keyframes waPulse{0%,100%{box-shadow:0 4px 24px rgba(37,211,102,0.45),0 0 0 0 rgba(37,211,102,0.3);}50%{box-shadow:0 4px 24px rgba(37,211,102,0.45),0 0 0 14px rgba(37,211,102,0);}}
+
+/* ── NAV ── */
+nav{position:fixed;top:0;left:0;right:0;z-index:800;height:68px;padding:0 5vw;display:flex;align-items:center;justify-content:space-between;transition:background 0.3s,border-color 0.3s,backdrop-filter 0.3s;border-bottom:1px solid transparent;}
+nav.scrolled{background:rgba(7,7,10,0.96);border-bottom-color:rgba(255,255,255,0.06);backdrop-filter:blur(20px);}
+.nav-logo{font-family:var(--font-head);font-size:24px;font-weight:900;letter-spacing:1px;color:#fff;}
+.nav-logo .t{color:var(--red);}
+.nav-logo sup{font-size:9px;color:var(--chrome2);margin-left:3px;font-family:var(--font-body);font-weight:400;letter-spacing:1px;}
+.nav-links{display:flex;gap:28px;align-items:center;}
+.nav-links a{font-size:13px;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:var(--chrome2);transition:color 0.2s;}
+.nav-links a:hover{color:#fff;}
+.nav-wa{display:flex;align-items:center;gap:8px;background:#25d366;color:#fff!important;padding:9px 18px;border-radius:6px;font-size:13px!important;transition:background 0.2s,transform 0.15s;}
+.nav-wa:hover{background:#1ebe5d!important;transform:translateY(-1px);}
+.hamburger{display:none;background:none;border:none;cursor:pointer;flex-direction:column;gap:5px;padding:4px;}
+.hamburger span{display:block;width:24px;height:2px;background:var(--chrome);border-radius:1px;transition:all 0.3s;}
+.mob-menu{display:none;position:fixed;inset:0;z-index:790;background:rgba(7,7,10,0.98);flex-direction:column;align-items:center;justify-content:center;gap:28px;}
+.mob-menu.open{display:flex;}
+.mob-menu a{font-family:var(--font-head);font-size:40px;font-weight:800;color:var(--chrome2);text-transform:uppercase;letter-spacing:2px;transition:color 0.2s;}
+.mob-menu a:hover{color:#fff;}
+.mob-close{position:absolute;top:22px;right:22px;background:none;border:none;color:var(--chrome);font-size:30px;cursor:pointer;}
+
+/* ── HERO ── */
+.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:100px 5vw 0;position:relative;overflow:hidden;}
+.hero-grid{position:absolute;inset:0;pointer-events:none;background-image:linear-gradient(rgba(255,255,255,0.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.025) 1px,transparent 1px);background-size:60px 60px;mask-image:radial-gradient(ellipse 80% 80% at 50% 50%,black 30%,transparent 100%);}
+.hero-redline{position:absolute;bottom:0;left:0;right:0;height:3px;background:var(--red);animation:scanline 3s ease-in-out infinite;opacity:0.6;}
+@keyframes scanline{0%,100%{transform:scaleX(0);transform-origin:left;}50%{transform:scaleX(1);transform-origin:left;}}
+.hero-inner{position:relative;z-index:2;display:grid;grid-template-columns:1fr auto;gap:40px;align-items:center;max-width:1300px;width:100%;}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(232,25,44,0.12);border:1px solid rgba(232,25,44,0.3);color:var(--red);font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:6px 14px;border-radius:100px;margin-bottom:22px;opacity:0;animation:rise 0.7s ease 0.1s forwards;}
+.hero-badge::before{content:'●';font-size:8px;animation:blink 1.2s ease infinite;}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:0.2}}
+.hero-h1{font-family:var(--font-head);font-size:clamp(56px,9vw,118px);font-weight:900;line-height:0.88;text-transform:uppercase;letter-spacing:-1px;opacity:0;animation:rise 0.8s ease 0.25s forwards;}
+.hero-h1 em{font-style:italic;color:var(--red);}
+.hero-h1 .stroke{-webkit-text-stroke:1.5px rgba(255,255,255,0.25);color:transparent;display:block;}
+.hero-tagline{font-size:clamp(15px,1.8vw,19px);font-weight:300;color:var(--chrome2);max-width:480px;line-height:1.75;margin-top:24px;opacity:0;animation:rise 0.8s ease 0.4s forwards;}
+.hero-ctas{display:flex;gap:14px;flex-wrap:wrap;margin-top:38px;opacity:0;animation:rise 0.8s ease 0.55s forwards;}
+.btn-wa{display:inline-flex;align-items:center;gap:10px;background:#25d366;color:#fff;font-family:var(--font-head);font-size:17px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:15px 30px;border-radius:8px;transition:background 0.2s,transform 0.15s;position:relative;overflow:hidden;}
+.btn-wa::after{content:'';position:absolute;top:0;left:-100%;width:50%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.2),transparent);transition:left 0.5s;}
+.btn-wa:hover::after{left:150%;}
+.btn-wa:hover{background:#1ebe5d;transform:translateY(-2px);}
+.btn-call{display:inline-flex;align-items:center;gap:10px;border:1.5px solid rgba(255,255,255,0.15);color:var(--chrome);font-family:var(--font-head);font-size:17px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:15px 30px;border-radius:8px;transition:border-color 0.2s,color 0.2s,transform 0.15s;}
+.btn-call:hover{border-color:rgba(255,255,255,0.4);color:#fff;transform:translateY(-2px);}
+.hero-delivery{display:flex;flex-direction:column;gap:14px;align-items:flex-end;opacity:0;animation:rise 0.8s ease 0.7s forwards;}
+.delivery-badge{background:var(--surface);border:1px solid rgba(255,255,255,0.08);border-radius:16px;padding:20px 24px;display:flex;align-items:center;gap:16px;min-width:230px;position:relative;overflow:hidden;}
+.delivery-badge::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--red);}
+.delivery-badge.green::before{background:var(--green);}
+.delivery-badge.orange::before{background:#f97316;}
+.delivery-badge-icon{font-size:32px;}
+.delivery-badge-title{font-family:var(--font-head);font-size:18px;font-weight:800;letter-spacing:0.5px;}
+.delivery-badge-sub{font-size:12px;color:var(--chrome2);margin-top:2px;}
+.hero-strip{position:relative;z-index:2;margin-top:56px;padding:26px 0;border-top:1px solid rgba(255,255,255,0.07);display:flex;gap:40px;flex-wrap:wrap;}
+.hero-strip-item{display:flex;align-items:center;gap:12px;}
+.strip-icon{font-size:22px;}
+.strip-label{font-size:13px;font-weight:600;color:var(--chrome2);}
+.strip-label strong{color:#fff;display:block;font-size:15px;}
+@keyframes rise{from{opacity:0;transform:translateY(24px);}to{opacity:1;transform:translateY(0);}}
+
+/* ── TICKER ── */
+.ticker{background:var(--red);overflow:hidden;height:40px;display:flex;align-items:center;}
+.ticker-inner{display:flex;animation:tick 22s linear infinite;white-space:nowrap;}
+.tick-item{font-family:var(--font-head);font-size:13px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,0.9);padding:0 26px;display:inline-flex;align-items:center;gap:26px;}
+.tick-item::after{content:'★';font-size:8px;color:rgba(255,255,255,0.5);}
+@keyframes tick{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* ── SECTION COMMONS ── */
+.section{padding:90px 5vw;}
+.section-dark{background:var(--dark);}
+.sec-eyebrow{font-size:11px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:var(--red);margin-bottom:12px;display:flex;align-items:center;gap:10px;}
+.sec-eyebrow::before{content:'';width:24px;height:1px;background:var(--red);}
+.sec-title{font-family:var(--font-head);font-size:clamp(36px,5vw,64px);font-weight:900;text-transform:uppercase;line-height:0.95;letter-spacing:-0.5px;margin-bottom:48px;}
+.sec-title .dim{-webkit-text-stroke:1px rgba(255,255,255,0.2);color:transparent;}
+
+/* ── WHY CARDS ── */
+.why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;}
+.why-card{background:var(--surface);padding:38px 32px;position:relative;overflow:hidden;transition:background 0.3s,transform 0.3s;}
+.why-card:hover{background:var(--surface2);transform:translateY(-4px);z-index:2;}
+.why-card::before{content:'';position:absolute;top:0;left:0;width:2px;height:0;background:var(--red);transition:height 0.4s;}
+.why-card:hover::before{height:100%;}
+.why-card-top{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:18px;}
+.why-icon{font-size:38px;}
+.why-num{font-family:var(--font-head);font-size:60px;font-weight:900;color:rgba(255,255,255,0.04);line-height:1;user-select:none;}
+.why-title{font-family:var(--font-head);font-size:22px;font-weight:800;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:12px;}
+.why-desc{font-size:14px;font-weight:300;color:var(--chrome2);line-height:1.75;}
+.why-pill{display:inline-block;margin-top:18px;background:rgba(232,25,44,0.12);color:var(--red);font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:5px 12px;border-radius:4px;}
+
+/* ── PARTS GRID ── */
+.parts-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;}
+.part-card{background:var(--surface);border:1px solid rgba(255,255,255,0.05);border-radius:14px;padding:28px 22px;transition:border-color 0.3s,background 0.3s,transform 0.3s;position:relative;overflow:hidden;}
+.part-card::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(232,25,44,0.06) 0%,transparent 60%);opacity:0;transition:opacity 0.3s;}
+.part-card:hover{border-color:rgba(232,25,44,0.3);background:var(--surface2);transform:translateY(-4px);}
+.part-card:hover::after{opacity:1;}
+.part-emoji{font-size:36px;margin-bottom:16px;display:block;}
+.part-name{font-family:var(--font-head);font-size:20px;font-weight:800;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:8px;}
+.part-desc{font-size:13px;font-weight:300;color:var(--chrome2);line-height:1.6;}
+.part-tag{margin-top:14px;display:inline-block;background:rgba(255,255,255,0.05);color:var(--chrome2);font-size:10px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;padding:4px 10px;border-radius:4px;}
+.parts-cta{margin-top:36px;text-align:center;padding:30px;background:var(--surface);border:1px dashed rgba(232,25,44,0.3);border-radius:14px;}
+.parts-cta p{font-size:16px;color:var(--chrome2);margin-bottom:18px;font-weight:300;}
+.parts-cta strong{color:#fff;}
+
+/* ── ORDER STEPS ── */
+.order-section{padding:90px 5vw;background:var(--dark);}
+.order-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0;position:relative;margin-top:50px;}
+.order-connector{position:absolute;top:40px;left:calc(12.5% + 16px);right:calc(12.5% + 16px);height:2px;background:linear-gradient(90deg,var(--red),rgba(232,25,44,0.1));z-index:0;}
+.order-step{padding:0 18px;text-align:center;position:relative;z-index:1;}
+.order-circle{width:80px;height:80px;border-radius:50%;background:var(--surface);border:2px solid rgba(232,25,44,0.35);display:flex;align-items:center;justify-content:center;font-size:30px;margin:0 auto 24px;position:relative;transition:background 0.3s,border-color 0.3s;}
+.order-circle::after{content:'';position:absolute;inset:-7px;border-radius:50%;border:1px solid rgba(232,25,44,0.12);}
+.order-step:hover .order-circle{background:rgba(232,25,44,0.1);border-color:var(--red);}
+.order-num{position:absolute;top:-8px;right:-4px;background:var(--red);color:#fff;font-family:var(--font-head);font-size:12px;font-weight:900;width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;}
+.order-title{font-family:var(--font-head);font-size:19px;font-weight:800;text-transform:uppercase;margin-bottom:10px;}
+.order-desc{font-size:13.5px;font-weight:300;color:var(--chrome2);line-height:1.65;}
+
+/* ── DELIVERY ── */
+.delivery-section{padding:90px 5vw;}
+.delivery-inner{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;}
+.delivery-cards{display:flex;flex-direction:column;gap:16px;}
+.d-card{background:var(--surface);border:1px solid rgba(255,255,255,0.06);border-radius:14px;padding:24px 28px;display:flex;gap:20px;align-items:flex-start;transition:border-color 0.3s,transform 0.3s;position:relative;overflow:hidden;}
+.d-card:hover{border-color:rgba(232,25,44,0.3);transform:translateX(4px);}
+.d-card-stripe{position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--red);}
+.d-card.green .d-card-stripe{background:var(--green);}
+.d-card.orange .d-card-stripe{background:#f97316;}
+.d-card.blue .d-card-stripe{background:#3b82f6;}
+.d-icon{font-size:34px;flex-shrink:0;}
+.d-title{font-family:var(--font-head);font-size:20px;font-weight:800;text-transform:uppercase;margin-bottom:6px;}
+.d-desc{font-size:13.5px;font-weight:300;color:var(--chrome2);line-height:1.6;}
+.d-badge{display:inline-block;margin-top:10px;font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:4px 10px;border-radius:4px;}
+.d-badge.red{background:rgba(232,25,44,0.12);color:var(--red);}
+.d-badge.green{background:rgba(34,197,94,0.12);color:var(--green);}
+.d-badge.orange{background:rgba(249,115,22,0.12);color:#f97316;}
+.d-badge.blue{background:rgba(59,130,246,0.12);color:#60a5fa;}
+.delivery-info p{font-size:16px;font-weight:300;color:var(--chrome2);line-height:1.8;margin-bottom:28px;}
+.area-chips{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:32px;}
+.area-chip{background:var(--surface2);border:1px solid rgba(255,255,255,0.08);color:var(--chrome);font-size:13px;font-weight:500;padding:7px 14px;border-radius:100px;transition:border-color 0.2s,color 0.2s;}
+.area-chip:hover{border-color:rgba(232,25,44,0.4);color:#fff;}
+
+/* ── VEHICLES ── */
+.vehicles-section{padding:90px 5vw;background:var(--dark);}
+.vehicles-scroll{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-top:48px;}
+.vehicle-card{background:var(--surface);border:1px solid rgba(255,255,255,0.05);border-radius:12px;padding:24px 18px;text-align:center;transition:border-color 0.3s,background 0.3s,transform 0.3s;}
+.vehicle-card:hover{border-color:rgba(232,25,44,0.3);background:var(--surface2);transform:translateY(-4px);}
+.vehicle-emoji{font-size:38px;margin-bottom:12px;display:block;}
+.vehicle-name{font-family:var(--font-head);font-size:15px;font-weight:800;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:5px;}
+.vehicle-brand{font-size:12px;color:var(--muted);}
+
+/* ── REVIEWS ── */
+.testimonials-section{padding:90px 5vw;}
+.reviews-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
+.review-card{background:var(--surface);border:1px solid rgba(255,255,255,0.06);border-radius:16px;padding:30px 26px;transition:border-color 0.3s,transform 0.3s;position:relative;}
+.review-card:hover{border-color:rgba(232,25,44,0.25);transform:translateY(-4px);}
+.review-card::before{content:'"';position:absolute;top:16px;right:22px;font-family:var(--font-head);font-size:80px;font-weight:900;color:rgba(232,25,44,0.08);line-height:1;}
+.review-stars{color:#fbbf24;font-size:16px;letter-spacing:3px;margin-bottom:16px;}
+.review-text{font-size:14.5px;font-weight:300;color:var(--chrome2);line-height:1.75;margin-bottom:22px;font-style:italic;}
+.review-author{display:flex;align-items:center;gap:14px;}
+.review-avatar{width:44px;height:44px;border-radius:50%;background:var(--surface2);display:flex;align-items:center;justify-content:center;font-size:20px;border:2px solid rgba(255,255,255,0.07);}
+.review-name{font-weight:700;font-size:14px;}
+.review-car{font-size:12px;color:var(--muted);margin-top:2px;}
+.review-source{font-size:11px;color:var(--red);margin-top:2px;}
+
+/* ── STATS BAND ── */
+.stats-band{padding:70px 5vw;background:linear-gradient(135deg,#0f0f14 0%,#1a0508 100%);border-top:1px solid rgba(232,25,44,0.15);border-bottom:1px solid rgba(232,25,44,0.15);display:grid;grid-template-columns:repeat(4,1fr);gap:32px;text-align:center;position:relative;overflow:hidden;}
+.stats-band::before{content:'';position:absolute;top:50%;left:50%;width:800px;height:400px;background:radial-gradient(ellipse,rgba(232,25,44,0.07) 0%,transparent 70%);transform:translate(-50%,-50%);pointer-events:none;}
+.stat-item{position:relative;z-index:1;}
+.stat-val{font-family:var(--font-head);font-size:56px;font-weight:900;line-height:1;color:#fff;}
+.stat-val .unit{color:var(--red);}
+.stat-label{font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--chrome2);margin-top:10px;font-weight:600;}
+
+/* ── CONTACT ── */
+.contact-section{padding:100px 5vw;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start;}
+.contact-section.section-dark{background:var(--dark);}
+.contact-left p{font-size:16px;font-weight:300;color:var(--chrome2);line-height:1.8;margin-bottom:36px;}
+.contact-items{display:flex;flex-direction:column;gap:14px;}
+.contact-item{display:flex;align-items:center;gap:16px;padding:17px 22px;background:var(--surface);border:1px solid rgba(255,255,255,0.06);border-radius:12px;transition:border-color 0.2s,transform 0.2s;}
+.contact-item:hover{border-color:rgba(232,25,44,0.3);transform:translateX(4px);}
+.contact-item-icon{font-size:26px;flex-shrink:0;width:44px;text-align:center;}
+.contact-item-label{font-size:11px;color:var(--muted);letter-spacing:1px;text-transform:uppercase;margin-bottom:3px;}
+.contact-item-val{font-size:15px;font-weight:600;color:#fff;}
+.contact-socials{display:flex;gap:12px;margin-top:26px;}
+.social-btn{width:48px;height:48px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:22px;background:var(--surface);border:1px solid rgba(255,255,255,0.07);transition:background 0.2s,border-color 0.2s,transform 0.2s;}
+.social-btn:hover{transform:translateY(-3px);}
+.social-btn.ig:hover{background:rgba(225,48,108,0.15);border-color:rgba(225,48,108,0.4);}
+.social-btn.fb:hover{background:rgba(66,103,178,0.15);border-color:rgba(66,103,178,0.4);}
+.social-btn.wa:hover{background:rgba(37,211,102,0.15);border-color:rgba(37,211,102,0.4);}
+.contact-right{background:var(--surface);border:1px solid rgba(255,255,255,0.07);border-radius:20px;padding:38px 34px;position:sticky;top:88px;}
+.order-form-title{font-family:var(--font-head);font-size:28px;font-weight:900;text-transform:uppercase;margin-bottom:6px;}
+.order-form-sub{font-size:14px;color:var(--chrome2);font-weight:300;margin-bottom:26px;}
+.form-group{margin-bottom:15px;}
+.form-label{font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--chrome2);display:block;margin-bottom:6px;}
+.form-input{width:100%;background:var(--dark);border:1px solid rgba(255,255,255,0.08);border-radius:8px;color:var(--text);font-family:var(--font-body);font-size:14px;padding:12px 14px;outline:none;transition:border-color 0.2s;-webkit-appearance:none;appearance:none;}
+.form-input:focus{border-color:rgba(232,25,44,0.5);}
+.form-input::placeholder{color:var(--muted);}
+select.form-input option{background:var(--dark);}
+.form-submit{width:100%;padding:15px;border:none;border-radius:8px;background:#25d366;color:#fff;font-family:var(--font-head);font-size:18px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;cursor:pointer;transition:background 0.2s,transform 0.15s;display:flex;align-items:center;justify-content:center;gap:10px;}
+.form-submit:hover{background:#1ebe5d;transform:translateY(-2px);}
+.form-note{font-size:12px;color:var(--muted);text-align:center;margin-top:12px;}
+
+/* ── FOOTER ── */
+footer{background:var(--dark);border-top:1px solid rgba(255,255,255,0.05);padding:60px 5vw 0;}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;}
+.footer-brand .logo{font-family:var(--font-head);font-size:28px;font-weight:900;color:#fff;margin-bottom:14px;}
+.footer-brand .logo .t{color:var(--red);}
+.footer-brand p{font-size:13px;color:var(--muted);line-height:1.75;max-width:260px;margin-bottom:20px;}
+.trust-strip{display:flex;flex-wrap:wrap;gap:8px;}
+.trust-badge{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.07);font-size:11px;color:var(--chrome2);font-weight:600;letter-spacing:1px;padding:5px 10px;border-radius:4px;text-transform:uppercase;}
+.footer-col h4{font-family:var(--font-head);font-size:14px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--chrome2);margin-bottom:18px;}
+.footer-col a{display:block;font-size:13px;color:var(--muted);margin-bottom:11px;transition:color 0.2s;}
+.footer-col a:hover{color:var(--chrome);}
+.footer-bottom{margin-top:50px;padding:22px 0;border-top:1px solid rgba(255,255,255,0.05);display:flex;justify-content:space-between;align-items:center;font-size:12px;color:var(--muted);}
+
+/* ── REVEAL ── */
+.reveal{opacity:0;transform:translateY(28px);transition:opacity 0.65s ease,transform 0.65s ease;}
+.reveal.in{opacity:1;transform:translateY(0);}
+.reveal-d1{transition-delay:0.1s;}
+.reveal-d2{transition-delay:0.2s;}
+.reveal-d3{transition-delay:0.3s;}
+.reveal-d4{transition-delay:0.4s;}
+
+/* ── MOBILE ── */
+@media(max-width:1024px){
+  .hero-inner{grid-template-columns:1fr;}
+  .hero-delivery{flex-direction:row;flex-wrap:wrap;align-items:stretch;}
+  .delivery-badge{flex:1;min-width:160px;}
+  .parts-grid{grid-template-columns:repeat(2,1fr);}
+  .vehicles-scroll{grid-template-columns:repeat(3,1fr);}
+  .footer-grid{grid-template-columns:1fr 1fr;gap:36px;}
+}
+@media(max-width:768px){
+  .nav-links{display:none;}
+  .hamburger{display:flex;}
+  .hero-h1{font-size:clamp(48px,13vw,76px);}
+  .hero-delivery{flex-direction:column;}
+  .hero-strip{gap:18px;}
+  .why-grid{grid-template-columns:1fr;gap:2px;}
+  .order-grid{grid-template-columns:1fr 1fr;gap:36px;}
+  .order-connector{display:none;}
+  .delivery-inner{grid-template-columns:1fr;gap:40px;}
+  .vehicles-scroll{grid-template-columns:repeat(2,1fr);}
+  .reviews-grid{grid-template-columns:1fr;}
+  .stats-band{grid-template-columns:1fr 1fr;gap:28px;}
+  .contact-section{grid-template-columns:1fr;gap:40px;}
+  .contact-right{position:static;}
+  .footer-grid{grid-template-columns:1fr;gap:28px;}
+  .footer-bottom{flex-direction:column;gap:8px;text-align:center;}
+  .wa-float{bottom:16px;right:16px;}
+}
+@media(max-width:540px){
+  .parts-grid{grid-template-columns:1fr;}
+  .order-grid{grid-template-columns:1fr;}
+  .vehicles-scroll{grid-template-columns:repeat(2,1fr);}
+  .stats-band{grid-template-columns:1fr 1fr;}
+  .hero-ctas{flex-direction:column;}
+  .btn-wa,.btn-call{width:100%;justify-content:center;}
+}
+</style>
+</head>
+<body>
+
+<!-- Floating WhatsApp -->
+<a class="wa-float" href="https://wa.me/919037523225?text=Hi%20TORQONE!%20I%20need%20spare%20parts%20for%20my%20vehicle." target="_blank" title="Chat on WhatsApp">💬</a>
+
+<!-- NAV -->
+<nav id="nav">
+  <a href="#" class="nav-logo"><span class="t">TORQ</span>ONE.IN<sup>Automotive</sup></a>
+  <div class="nav-links">
+    <a href="#parts">Parts</a>
+    <a href="#delivery">Delivery</a>
+    <a href="#vehicles">Vehicles</a>
+    <a href="#reviews">Reviews</a>
+    <a href="#contact">Contact</a>
+    <a href="https://wa.me/919037523225?text=Hi%20TORQONE!%20I%20need%20spare%20parts." target="_blank" class="nav-wa">💬 Order Now</a>
+  </div>
+  <button class="hamburger" id="ham"><span></span><span></span><span></span></button>
+</nav>
+
+<!-- Mobile Menu -->
+<div class="mob-menu" id="mobMenu">
+  <button class="mob-close" id="mobClose">✕</button>
+  <a href="#parts" onclick="closeMenu()">Parts</a>
+  <a href="#delivery" onclick="closeMenu()">Delivery</a>
+  <a href="#vehicles" onclick="closeMenu()">Vehicles</a>
+  <a href="#reviews" onclick="closeMenu()">Reviews</a>
+  <a href="#contact" onclick="closeMenu()" style="color:var(--red)">Order</a>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-grid"></div>
+  <div class="hero-inner">
+    <div>
+      <div class="hero-badge">🔴 Now Serving Kochi & All Kerala</div>
+      <h1 class="hero-h1">
+        <em>Genuine</em><br>
+        <span class="stroke">Spare Parts</span><br>
+        Fast Delivery
+      </h1>
+      <p class="hero-tagline">Premium automotive spare parts sourced directly from trusted wholesale dealers. Order on WhatsApp — delivered to your doorstep across Kerala.</p>
+      <div class="hero-ctas">
+        <a href="https://wa.me/919037523225?text=Hi%20TORQONE!%20I%20need%20spare%20parts%20for%20my%20vehicle." target="_blank" class="btn-wa">💬 Order on WhatsApp</a>
+        <a href="tel:+919037523225" class="btn-call">📞 Call Now</a>
+      </div>
+    </div>
+    <div class="hero-delivery">
+      <div class="delivery-badge">
+        <div class="delivery-badge-icon">⚡</div>
+        <div><div class="delivery-badge-title">Same Day</div><div class="delivery-badge-sub">Delivery in Kochi</div></div>
+      </div>
+      <div class="delivery-badge green">
+        <div class="delivery-badge-icon">✅</div>
+        <div><div class="delivery-badge-title">100% Genuine</div><div class="delivery-badge-sub">OEM & Premium Parts</div></div>
+      </div>
+      <div class="delivery-badge orange">
+        <div class="delivery-badge-icon">💰</div>
+        <div><div class="delivery-badge-title">Best Price</div><div class="delivery-badge-sub">Wholesale Rates</div></div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-strip">
+    <div class="hero-strip-item"><span class="strip-icon">🛻</span><div class="strip-label"><strong>Free Delivery</strong>On Orders Above ₹2000</div></div>
+    <div class="hero-strip-item"><span class="strip-icon">📦</span><div class="strip-label"><strong>All Kerala</strong>Courier Delivery Available</div></div>
+    <div class="hero-strip-item"><span class="strip-icon">🔧</span><div class="strip-label"><strong>500+ Parts</strong>Available on Demand</div></div>
+    <div class="hero-strip-item"><span class="strip-icon">📱</span><div class="strip-label"><strong>WhatsApp First</strong>Fastest Way to Order</div></div>
+  </div>
+  <div class="hero-redline"></div>
+</section>
+
+<!-- TICKER -->
+<div class="ticker">
+  <div class="ticker-inner">
+    <span class="tick-item">Brake Pads</span><span class="tick-item">Rotor Discs</span><span class="tick-item">Air Filters</span><span class="tick-item">Oil Filters</span><span class="tick-item">Clutch Kits</span><span class="tick-item">Shock Absorbers</span><span class="tick-item">Spark Plugs</span><span class="tick-item">Wiper Blades</span><span class="tick-item">Headlights</span><span class="tick-item">Batteries</span><span class="tick-item">Engine Mounts</span><span class="tick-item">Brake Pads</span><span class="tick-item">Rotor Discs</span><span class="tick-item">Air Filters</span><span class="tick-item">Oil Filters</span><span class="tick-item">Clutch Kits</span><span class="tick-item">Shock Absorbers</span><span class="tick-item">Spark Plugs</span><span class="tick-item">Wiper Blades</span><span class="tick-item">Headlights</span><span class="tick-item">Batteries</span><span class="tick-item">Engine Mounts</span>
+  </div>
+</div>
+
+<!-- WHY TORQONE -->
+<section class="section section-dark">
+  <div class="sec-eyebrow reveal">Why Choose Us</div>
+  <h2 class="sec-title reveal">Why Customers<br><span class="dim">Trust TORQONE</span></h2>
+  <div class="why-grid">
+    <div class="why-card reveal reveal-d1">
+      <div class="why-card-top"><span class="why-icon">⚡</span><span class="why-num">01</span></div>
+      <div class="why-title">Lightning Fast Delivery</div>
+      <p class="why-desc">Same-day delivery within Kochi. Next-day courier across Kerala. We know your car can't wait — and neither do we.</p>
+      <span class="why-pill">Same Day in Kochi</span>
+    </div>
+    <div class="why-card reveal reveal-d2">
+      <div class="why-card-top"><span class="why-icon">🛡️</span><span class="why-num">02</span></div>
+      <div class="why-title">100% Genuine Parts</div>
+      <p class="why-desc">Every part sourced directly from authorised wholesale dealers. OEM quality guaranteed. No duplicates, no compromise on safety.</p>
+      <span class="why-pill">OEM Certified</span>
+    </div>
+    <div class="why-card reveal reveal-d3">
+      <div class="why-card-top"><span class="why-icon">💰</span><span class="why-num">03</span></div>
+      <div class="why-title">Wholesale Prices</div>
+      <p class="why-desc">We source directly and pass the savings to you. Get genuine parts at prices your local shop simply can't match.</p>
+      <span class="why-pill">Best in Kerala</span>
+    </div>
+    <div class="why-card reveal reveal-d1">
+      <div class="why-card-top"><span class="why-icon">💬</span><span class="why-num">04</span></div>
+      <div class="why-title">WhatsApp Ordering</div>
+      <p class="why-desc">No app to download, no account to create. Send your vehicle details on WhatsApp and we handle everything instantly.</p>
+      <span class="why-pill">Instant Response</span>
+    </div>
+    <div class="why-card reveal reveal-d2">
+      <div class="why-card-top"><span class="why-icon">📄</span><span class="why-num">05</span></div>
+      <div class="why-title">Proper Invoices</div>
+      <p class="why-desc">Every purchase gets a professional branded invoice sent to your WhatsApp. Perfect for service centre warranty claims.</p>
+      <span class="why-pill">PDF on WhatsApp</span>
+    </div>
+    <div class="why-card reveal reveal-d3">
+      <div class="why-card-top"><span class="why-icon">🔁</span><span class="why-num">06</span></div>
+      <div class="why-title">Easy Returns</div>
+      <p class="why-desc">Wrong part? We fix it without arguments. Your satisfaction is everything — simple, fair, and fast resolution every time.</p>
+      <span class="why-pill">Hassle-Free</span>
+    </div>
+  </div>
+</section>
+
+<!-- PARTS -->
+<section class="section" id="parts">
+  <div class="sec-eyebrow reveal">What We Stock</div>
+  <h2 class="sec-title reveal">Parts We<br><span class="dim">Specialise In</span></h2>
+  <div class="parts-grid">
+    <div class="part-card reveal reveal-d1"><span class="part-emoji">🛑</span><div class="part-name">Brake System</div><p class="part-desc">Brake pads, rotor discs, brake fluid, calipers, and drums for all makes and models.</p><span class="part-tag">High Demand</span></div>
+    <div class="part-card reveal reveal-d2"><span class="part-emoji">🔩</span><div class="part-name">Engine Parts</div><p class="part-desc">Filters, belts, timing chains, gaskets, pistons, and engine mounts for long engine life.</p><span class="part-tag">All Models</span></div>
+    <div class="part-card reveal reveal-d3"><span class="part-emoji">🌀</span><div class="part-name">Suspension</div><p class="part-desc">Shock absorbers, struts, control arms, bushings, and wheel bearings for smooth rides.</p><span class="part-tag">Quick Delivery</span></div>
+    <div class="part-card reveal reveal-d4"><span class="part-emoji">💡</span><div class="part-name">Electricals</div><p class="part-desc">Headlights, tail lights, batteries, alternators, starters, and sensors.</p><span class="part-tag">OEM Grade</span></div>
+    <div class="part-card reveal reveal-d1"><span class="part-emoji">🔧</span><div class="part-name">Transmission</div><p class="part-desc">Clutch kits, gear cables, gearbox mounts, and all transmission fluids.</p><span class="part-tag">Available Now</span></div>
+    <div class="part-card reveal reveal-d2"><span class="part-emoji">❄️</span><div class="part-name">Cooling System</div><p class="part-desc">Radiators, coolant, water pumps, thermostats, and cooling fans.</p><span class="part-tag">Fast Sourced</span></div>
+    <div class="part-card reveal reveal-d3"><span class="part-emoji">🪟</span><div class="part-name">Body & Exterior</div><p class="part-desc">Wiper blades, mirrors, door handles, bumper clips and body panels.</p><span class="part-tag">Wide Range</span></div>
+    <div class="part-card reveal reveal-d4"><span class="part-emoji">🛞</span><div class="part-name">Tyres & Wheels</div><p class="part-desc">Tyres, alloy wheels, hubcaps, TPMS sensors, and wheel spacers.</p><span class="part-tag">All Sizes</span></div>
+  </div>
+  <div class="parts-cta reveal">
+    <p>Don't see what you need? <strong>We source any part for any vehicle.</strong> Just send us the model and part name on WhatsApp.</p>
+    <a href="https://wa.me/919037523225?text=Hi%20TORQONE!%20I%20need%20a%20specific%20part." target="_blank" class="btn-wa" style="display:inline-flex">💬 Request Any Part</a>
+  </div>
+</section>
+
+<!-- HOW TO ORDER -->
+<section class="order-section">
+  <div class="sec-eyebrow reveal">Simple Process</div>
+  <h2 class="sec-title reveal">How to<br><span class="dim">Place an Order</span></h2>
+  <div class="order-grid">
+    <div class="order-connector"></div>
+    <div class="order-step reveal reveal-d1">
+      <div class="order-circle">💬<div class="order-num">1</div></div>
+      <div class="order-title">WhatsApp Us</div>
+      <p class="order-desc">Send your vehicle make, model, year, and part needed. We reply within minutes.</p>
+    </div>
+    <div class="order-step reveal reveal-d2">
+      <div class="order-circle">🔍<div class="order-num">2</div></div>
+      <div class="order-title">We Source It</div>
+      <p class="order-desc">We check availability from our wholesale dealers and confirm the best price for you.</p>
+    </div>
+    <div class="order-step reveal reveal-d3">
+      <div class="order-circle">💳<div class="order-num">3</div></div>
+      <div class="order-title">Quick Payment</div>
+      <p class="order-desc">Pay via UPI, bank transfer, or cash on delivery. Invoice sent to your WhatsApp instantly.</p>
+    </div>
+    <div class="order-step reveal reveal-d4">
+      <div class="order-circle">🚚<div class="order-num">4</div></div>
+      <div class="order-title">Fast Delivery</div>
+      <p class="order-desc">Same day in Kochi, next day across Kerala. Track your delivery via WhatsApp updates.</p>
+    </div>
+  </div>
+</section>
+
+<!-- DELIVERY -->
+<section class="delivery-section" id="delivery">
+  <div class="delivery-inner">
+    <div class="delivery-cards reveal">
+      <div class="d-card"><div class="d-card-stripe"></div><div class="d-icon">⚡</div><div><div class="d-title">Same Day — Kochi</div><p class="d-desc">Order before 12 PM, receive by evening. Edappally, Kakkanad, Vytilla, Aluva, Thrippunithura and surrounding areas.</p><span class="d-badge red">Within Kochi</span></div></div>
+      <div class="d-card green"><div class="d-card-stripe"></div><div class="d-icon">📦</div><div><div class="d-title">Next Day — All Kerala</div><p class="d-desc">Fast courier to Trivandrum, Calicut, Thrissur, Palakkad, Kollam, Kannur and all districts across Kerala.</p><span class="d-badge green">All 14 Districts</span></div></div>
+      <div class="d-card orange"><div class="d-card-stripe"></div><div class="d-icon">🛻</div><div><div class="d-title">Free Delivery</div><p class="d-desc">Free home delivery on all orders above ₹2,000 within Kochi. No hidden charges, ever.</p><span class="d-badge orange">Orders ₹2000+</span></div></div>
+      <div class="d-card blue"><div class="d-card-stripe"></div><div class="d-icon">💳</div><div><div class="d-title">Pay on Delivery</div><p class="d-desc">Cash, UPI, or bank transfer. Pay only when you receive and verify your part.</p><span class="d-badge blue">COD Available</span></div></div>
+    </div>
+    <div class="delivery-info">
+      <div class="sec-eyebrow reveal">Delivery Info</div>
+      <h2 class="sec-title reveal">We Deliver<br><span class="dim">Across Kerala</span></h2>
+      <p class="reveal">From Kasaragod to Thiruvananthapuram — your part, your doorstep, fast.</p>
+      <div class="area-chips reveal">
+        <span class="area-chip">📍 Kochi</span><span class="area-chip">📍 Trivandrum</span><span class="area-chip">📍 Calicut</span><span class="area-chip">📍 Thrissur</span><span class="area-chip">📍 Palakkad</span><span class="area-chip">📍 Kollam</span><span class="area-chip">📍 Kannur</span><span class="area-chip">📍 Malappuram</span><span class="area-chip">📍 Kottayam</span><span class="area-chip">📍 Alappuzha</span><span class="area-chip">+ All Kerala</span>
+      </div>
+      <a href="https://wa.me/919037523225?text=Hi!%20I%20want%20to%20check%20delivery%20to%20my%20area." target="_blank" class="btn-wa reveal" style="display:inline-flex">💬 Check Your Area</a>
+    </div>
+  </div>
+</section>
+
+<!-- VEHICLES -->
+<section class="vehicles-section" id="vehicles">
+  <div class="sec-eyebrow reveal">Compatibility</div>
+  <h2 class="sec-title reveal">Parts For<br><span class="dim">Every Vehicle</span></h2>
+  <div class="vehicles-scroll">
+    <div class="vehicle-card reveal reveal-d1"><span class="vehicle-emoji">🚙</span><div class="vehicle-name">Innova Crysta</div><div class="vehicle-brand">Toyota</div></div>
+    <div class="vehicle-card reveal reveal-d2"><span class="vehicle-emoji">🚗</span><div class="vehicle-name">Swift & Dzire</div><div class="vehicle-brand">Maruti Suzuki</div></div>
+    <div class="vehicle-card reveal reveal-d3"><span class="vehicle-emoji">🚘</span><div class="vehicle-name">Creta & Venue</div><div class="vehicle-brand">Hyundai</div></div>
+    <div class="vehicle-card reveal reveal-d4"><span class="vehicle-emoji">🚐</span><div class="vehicle-name">Fortuner</div><div class="vehicle-brand">Toyota</div></div>
+    <div class="vehicle-card reveal reveal-d1"><span class="vehicle-emoji">🏎️</span><div class="vehicle-name">City & Amaze</div><div class="vehicle-brand">Honda</div></div>
+    <div class="vehicle-card reveal reveal-d2"><span class="vehicle-emoji">🚕</span><div class="vehicle-name">Seltos & Sonet</div><div class="vehicle-brand">KIA</div></div>
+    <div class="vehicle-card reveal reveal-d3"><span class="vehicle-emoji">🚌</span><div class="vehicle-name">Scorpio & Thar</div><div class="vehicle-brand">Mahindra</div></div>
+    <div class="vehicle-card reveal reveal-d4"><span class="vehicle-emoji">🚑</span><div class="vehicle-name">Nexon & Harrier</div><div class="vehicle-brand">Tata Motors</div></div>
+    <div class="vehicle-card reveal reveal-d1"><span class="vehicle-emoji">🚓</span><div class="vehicle-name">Baleno & Brezza</div><div class="vehicle-brand">Maruti Suzuki</div></div>
+    <div class="vehicle-card reveal reveal-d2"><span class="vehicle-emoji">💬</span><div class="vehicle-name">Any Other Car?</div><div class="vehicle-brand" style="color:var(--red)">Just WhatsApp Us</div></div>
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="stats-band">
+  <div class="stat-item reveal"><div class="stat-val">500<span class="unit">+</span></div><div class="stat-label">Parts Available</div></div>
+  <div class="stat-item reveal reveal-d1"><div class="stat-val">200<span class="unit">+</span></div><div class="stat-label">Happy Customers</div></div>
+  <div class="stat-item reveal reveal-d2"><div class="stat-val">2<span class="unit">hr</span></div><div class="stat-label">Avg Response Time</div></div>
+  <div class="stat-item reveal reveal-d3"><div class="stat-val">14<span class="unit"> dist</span></div><div class="stat-label">Across Kerala</div></div>
+</div>
+
+<!-- REVIEWS -->
+<section class="testimonials-section" id="reviews">
+  <div class="sec-eyebrow reveal">What Customers Say</div>
+  <h2 class="sec-title reveal">Real Reviews<br><span class="dim">From Real Buyers</span></h2>
+  <div class="reviews-grid">
+    <div class="review-card reveal reveal-d1">
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">Ordered brake pads for my Innova Crysta. Got them the same day in Kakkanad. Genuine parts, perfect fit, and they even sent the invoice on WhatsApp. Highly recommend!</p>
+      <div class="review-author"><div class="review-avatar">👨</div><div><div class="review-name">Anoop Kumar</div><div class="review-car">Toyota Innova Crysta</div><div class="review-source">via Instagram</div></div></div>
+    </div>
+    <div class="review-card reveal reveal-d2">
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">I was worried about buying auto parts online but TORQONE delivered in just a few hours. The rotor discs were OEM quality and the price was way better than local shops!</p>
+      <div class="review-author"><div class="review-avatar">👩</div><div><div class="review-name">Priya Nair</div><div class="review-car">Maruti Swift 2021</div><div class="review-source">via Facebook</div></div></div>
+    </div>
+    <div class="review-card reveal reveal-d3">
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">Just messaged TORQONE in the morning, got the shock absorbers by afternoon. Super fast, genuine parts and the WhatsApp invoice is super convenient!</p>
+      <div class="review-author"><div class="review-avatar">🧑</div><div><div class="review-name">Rahul Menon</div><div class="review-car">Hyundai Creta 2022</div><div class="review-source">via WhatsApp</div></div></div>
+    </div>
+    <div class="review-card reveal reveal-d1">
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">Needed a filter urgently before a road trip. They had it ready in 2 hours! Delivery was fast and they followed up to make sure everything was fine. 10/10.</p>
+      <div class="review-author"><div class="review-avatar">👨‍💼</div><div><div class="review-name">Sanjay Pillai</div><div class="review-car">Toyota Fortuner</div><div class="review-source">via Instagram</div></div></div>
+    </div>
+    <div class="review-card reveal reveal-d2">
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">I'm from Palakkad and they still couriered the parts the next day! Other shops said 3–4 days. TORQONE is in a different league. Will definitely order again!</p>
+      <div class="review-author"><div class="review-avatar">🧔</div><div><div class="review-name">Vishnu Krishnan</div><div class="review-car">Honda City 2019</div><div class="review-source">via WhatsApp</div></div></div>
+    </div>
+    <div class="review-card reveal reveal-d3">
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">Best pricing for genuine parts in Kerala. The professional invoice they send on WhatsApp really helps with warranty claims at the service centre!</p>
+      <div class="review-author"><div class="review-avatar">👩‍💻</div><div><div class="review-name">Meera Thomas</div><div class="review-car">Hyundai Venue 2023</div><div class="review-source">via Facebook</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact-section section-dark" id="contact">
+  <div class="contact-left">
+    <div class="sec-eyebrow reveal">Get in Touch</div>
+    <h2 class="sec-title reveal">Order Now or<br><span class="dim">Ask Anything</span></h2>
+    <p class="reveal">The fastest way to reach us is WhatsApp. We respond within minutes. You can also call directly or find us in Edappally, Kochi.</p>
+    <div class="contact-items reveal">
+      <a href="https://wa.me/919037523225" target="_blank" class="contact-item" style="border-color:rgba(37,211,102,0.2)">
+        <div class="contact-item-icon">💬</div><div><div class="contact-item-label">WhatsApp</div><div class="contact-item-val">+91 9037523225</div></div>
+      </a>
+      <a href="tel:+919037523225" class="contact-item">
+        <div class="contact-item-icon">📞</div><div><div class="contact-item-label">Call Us</div><div class="contact-item-val">+91 9037523225</div></div>
+      </a>
+      <div class="contact-item">
+        <div class="contact-item-icon">📍</div><div><div class="contact-item-label">Location</div><div class="contact-item-val">Edappally, Kochi, Kerala</div></div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-item-icon">⏰</div><div><div class="contact-item-label">Business Hours</div><div class="contact-item-val">Mon–Sat, 9 AM – 8 PM</div></div>
+      </div>
+    </div>
+    <div class="contact-socials reveal">
+      <a href="https://instagram.com" target="_blank" class="social-btn ig">📷</a>
+      <a href="https://facebook.com" target="_blank" class="social-btn fb">👍</a>
+      <a href="https://wa.me/919037523225" target="_blank" class="social-btn wa">💬</a>
+    </div>
+  </div>
+  <div class="contact-right reveal">
+    <div class="order-form-title">Quick Order</div>
+    <p class="order-form-sub">Fill this form and we'll WhatsApp you the price & availability in minutes.</p>
+    <div class="form-group"><label class="form-label">Your Name</label><input class="form-input" type="text" placeholder="e.g. Rahul Kumar" id="f_name"/></div>
+    <div class="form-group"><label class="form-label">WhatsApp Number</label><input class="form-input" type="tel" placeholder="+91 9876543210" id="f_phone"/></div>
+    <div class="form-group"><label class="form-label">Vehicle (Make & Model)</label><input class="form-input" type="text" placeholder="e.g. Toyota Innova Crysta 2022" id="f_vehicle"/></div>
+    <div class="form-group"><label class="form-label">Part You Need</label><input class="form-input" type="text" placeholder="e.g. Front Brake Pads" id="f_part"/></div>
+    <div class="form-group">
+      <label class="form-label">Your District</label>
+      <select class="form-input" id="f_location">
+        <option value="">Select district...</option>
+        <option>Kochi / Ernakulam</option><option>Thiruvananthapuram</option><option>Kozhikode</option><option>Thrissur</option><option>Palakkad</option><option>Kollam</option><option>Kannur</option><option>Malappuram</option><option>Kottayam</option><option>Alappuzha</option><option>Idukki</option><option>Wayanad</option><option>Kasaragod</option><option>Pathanamthitta</option>
+      </select>
+    </div>
+    <button class="form-submit" onclick="submitOrder()">💬 Send Order on WhatsApp</button>
+    <p class="form-note">We'll reply within minutes during business hours.</p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="logo"><span class="t">TORQ</span>ONE.IN</div>
+      <p>Your trusted automotive spare parts partner in Kerala. Genuine parts, fast delivery, honest prices — always.</p>
+      <div class="trust-strip"><span class="trust-badge">✓ Genuine Parts</span><span class="trust-badge">✓ Fast Delivery</span><span class="trust-badge">✓ Best Price</span></div>
+    </div>
+    <div class="footer-col">
+      <h4>Parts</h4>
+      <a href="#parts">Brake System</a><a href="#parts">Engine Parts</a><a href="#parts">Suspension</a><a href="#parts">Electricals</a><a href="#parts">Transmission</a>
+    </div>
+    <div class="footer-col">
+      <h4>Vehicles</h4>
+      <a href="#vehicles">Toyota</a><a href="#vehicles">Hyundai</a><a href="#vehicles">Maruti Suzuki</a><a href="#vehicles">Honda</a><a href="#vehicles">All Brands</a>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <a href="https://wa.me/919037523225" target="_blank">💬 WhatsApp</a>
+      <a href="tel:+919037523225">📞 9037523225</a>
+      <a href="#">📍 Edappally, Kochi</a>
+      <a href="https://instagram.com" target="_blank">📷 Instagram</a>
+      <a href="https://facebook.com" target="_blank">👍 Facebook</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 TORQONE.IN — All Rights Reserved. Edappally, Kochi, Kerala.</span>
+    <span style="color:var(--red)">Automotive Performance Hub ®</span>
+  </div>
+</footer>
+
+<script>
+window.addEventListener('scroll',()=>{ document.getElementById('nav').classList.toggle('scrolled',window.scrollY>50); });
+document.getElementById('ham').addEventListener('click',()=>document.getElementById('mobMenu').classList.add('open'));
+document.getElementById('mobClose').addEventListener('click',closeMenu);
+function closeMenu(){document.getElementById('mobMenu').classList.remove('open');}
+const io=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('in');});},{threshold:0.12});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+function submitOrder(){
+  const name=document.getElementById('f_name').value.trim();
+  const phone=document.getElementById('f_phone').value.trim();
+  const vehicle=document.getElementById('f_vehicle').value.trim();
+  const part=document.getElementById('f_part').value.trim();
+  const loc=document.getElementById('f_location').value;
+  if(!name||!vehicle||!part){alert('Please fill in your name, vehicle, and part needed.');return;}
+  const msg=['Hi TORQONE! I want to order a spare part.','',`Name: ${name}`,phone?`WhatsApp: ${phone}`:'',`Vehicle: ${vehicle}`,`Part Needed: ${part}`,loc?`Location: ${loc}`:'','Please confirm availability and price. Thank you!'].filter(Boolean).join('\n');
+  window.open(`https://wa.me/919037523225?text=${encodeURIComponent(msg)}`,'_blank');
+}
+document.querySelectorAll('a[href^="#"]').forEach(a=>{
+  a.addEventListener('click',e=>{const t=document.querySelector(a.getAttribute('href'));if(!t)return;e.preventDefault();t.scrollIntoView({behavior:'smooth',block:'start'});});
+});
+</script>
+</body>
+</html>
